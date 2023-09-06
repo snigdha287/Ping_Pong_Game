@@ -1,4 +1,4 @@
-"use strict";
+ "use strict";
 var first_rod = document.getElementById("rod-one");
 var second_rod = document.getElementById("rod-two");
 var ball = document.getElementById("ball");
@@ -12,10 +12,7 @@ var action = {
   lost: false,
 };
 function start() {
-  if (
-    localStorage.getItem("first").toString() >
-    localStorage.getItem("second").toString()
-  ) {
+  if (localStorage.getItem("first") > localStorage.getItem("second")) {
     window.alert(
       "Rod 1 has a maximum score of " + localStorage.getItem("first").toString()
     );
@@ -276,7 +273,7 @@ add_event_listener_to_rods();
 set_interval_for_ball();
 start();
 document.addEventListener("keydown", function (event) {
-  if (event.keyCode == 13) {
+  if (event.key == "s") {
     if (action.lost) {
       if (action.loosing_side == "first") {
         ball.classList.add("animate-bottom-right");
